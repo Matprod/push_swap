@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Matprod <matprod42@gmail.com>              +#+  +:+       +#+        */
+/*   By: mvoisin <mvoisin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/10 18:31:56 by Matprod           #+#    #+#             */
-/*   Updated: 2024/01/08 18:31:37 by Matprod          ###   ########.fr       */
+/*   Updated: 2024/01/12 15:48:15 by mvoisin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,14 @@
 
 typedef struct s_stack
 {
-    int value;
-    struct s_stack* next;
-} 				t_stack;
+    int     value;
+    int     cost_a;
+    int     cost_b;
+    struct  s_stack *next;
+}   t_stack;
 
 
-// INIT STACK
+// STACK
 
 t_stack     *new_stack(int value);
 t_stack     *stack_init(int argc, char **argv);
@@ -36,6 +38,8 @@ void        stack_add_front(t_stack **stack, t_stack *new_stack);
 void	    stack_add_back(t_stack **stack, t_stack *new_node);
 void        print_stack(t_stack *stack); // A REMPLACER PAR FTPRINTF!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 void        free_stack(t_stack *stack);
+t_stack	    *stack_go_to_index(t_stack *stack, int index);
+int         stack_min(t_stack **stack);
 
 
 // INSTRUCTIONS
@@ -58,13 +62,22 @@ int	    do_move(t_stack **stack_a, t_stack **stack_b, char *move);
 int     ft_atoi(const char *str);
 int     ft_strlen(const char *str);
 void	ft_putstr(const char *str);
-void	stderr_putstr(const char *str);
 int     ft_strcmp(char *s1, char *s2);
+int	ft_abs(int nb);
 
 //ALGO
 
 t_stack     *sort_two(t_stack **stack);
 t_stack     *sort_three(t_stack **stack);
+
+//MOVES
+
+int	get_closest(t_stack *stack, int nb);
+int	get_move(t_stack *stack_a, int nb);
+int	get_best_move(t_stack *stack_a, t_stack *stack_b);
+
+//COST
+int	get_cheapest_cost(t_stack *stack_b);
 
 //ERROR
 

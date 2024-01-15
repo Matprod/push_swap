@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Matprod <matprod42@gmail.com>              +#+  +:+       +#+        */
+/*   By: mvoisin <mvoisin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 18:38:53 by Matprod           #+#    #+#             */
-/*   Updated: 2024/01/08 18:15:24 by Matprod          ###   ########.fr       */
+/*   Updated: 2024/01/12 14:50:39 by mvoisin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,7 @@ void	ft_putstr(const char *str)
 {
 	write(1, str, ft_strlen(str));
 }
-void	stderr_putstr(const char *str)
-{
-	write(STDERR_FILENO, str, ft_strlen(str));
-}
+
 
 int ft_strcmp(char *s1, char *s2)
 {
@@ -58,4 +55,10 @@ int ft_strcmp(char *s1, char *s2)
 	while ((!s1 || !*s2) && (s1[i] == s2[i]))
 		i++;
 	return((unsigned char)s1[i] - (unsigned char)s2[i]);
+}
+int	ft_abs(int nb)
+{
+	if (nb < 0)
+		return (-nb);
+	return (nb);
 }
