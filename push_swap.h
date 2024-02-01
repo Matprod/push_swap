@@ -3,87 +3,106 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvoisin <mvoisin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: phunguye <phunguye@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/10 18:31:56 by Matprod           #+#    #+#             */
-/*   Updated: 2024/01/12 15:48:15 by mvoisin          ###   ########.fr       */
+/*   Created: 2022/09/11 15:23:20 by phunguye          #+#    #+#             */
+/*   Updated: 2022/12/02 15:57:47 by phunguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <stdio.h>
+# include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdbool.h>
 # include <limits.h>
-
+# include "./libftprintf/ft_printf.h"
+# include "./libftprintf/libft/libft.h"
 
 typedef struct s_stack
 {
-    int     value;
-    int     cost_a;
-    int     cost_b;
-    struct  s_stack *next;
-}   t_stack;
+	long int				value;
+	int				index;
+	int				pos;
+	int				target_pos;
+	int				cost_a;
+	int				cost_b;
+	struct s_stack	*next;
+}	t_stack;
+
+/* Initialization */
+
+t_stack 	*stack_fill(t_stack *stack_a,int size, char **av, int i);
+void		assign_index(t_stack *stack_a, int ac);
+
+/* Sorting Algorithms */
+
+int			is_sorted(t_stack *stack);
+void		tiny_sort(t_stack **stack);
+void		sort(t_stack **stack_a, t_stack **stack_b);
+
+/* Position */
+
+int			get_lowest_index_position(t_stack **stack);
+void		get_target_position(t_stack **stack_a, t_stack **stack_b);
+
+/* Cost */
+
+void		get_cost(t_stack **stack_a, t_stack **stack_b);
+void		do_cheapest_move(t_stack **stack_a, t_stack **stack_b);
+
+/* Calculate Move */
+
+void		do_move(t_stack **a, t_stack **b, int cost_a, int cost_b);
+
+/* Operations */
+
+void		do_pa(t_stack **stack_a, t_stack **stack_b);
+void		do_pb(t_stack **stack_a, t_stack **stack_b);
+void		do_sa(t_stack **stack_a);
+void		do_sb(t_stack **stack_b);
+void		do_ss(t_stack **stack_a, t_stack **stack_b);
+void		do_ra(t_stack **stack_a);
+void		do_rb(t_stack **stack_b);
+void		do_rr(t_stack **stack_a, t_stack **stack_b);
+void		do_rrr(t_stack **stack_a, t_stack **stack_b);
+void		do_rra(t_stack **stack_a);
+void		do_rrb(t_stack **stack_b);
+
+/* Stack Functions */
+
+t_stack		*get_stack_bottom(t_stack *stack);
+t_stack		*get_stack_before_bottom(t_stack *stack);
+t_stack		*stack_new(long int value);
+void		stack_add_bottom(t_stack **stack, t_stack *new);
+int			get_stack_size(t_stack	*stack);
 
 
-// STACK
+/* Utils */
 
-t_stack     *new_stack(int value);
-t_stack     *stack_init(int argc, char **argv);
-int	        stack_size(t_stack **stack);
-void        stack_add_front(t_stack **stack, t_stack *new_stack);
-void	    stack_add_back(t_stack **stack, t_stack *new_node);
-void        print_stack(t_stack *stack); // A REMPLACER PAR FTPRINTF!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-void        free_stack(t_stack *stack);
-t_stack	    *stack_go_to_index(t_stack *stack, int index);
-int         stack_min(t_stack **stack);
+void		free_stack(t_stack *stack);
+void		free_array(char **array);
+long int	ft_atol(const char *str);
+void		ft_putstr(char *str);
+int			nb_abs(int nb);
+void		print_stack(t_stack *stack);
+size_t		ft_wordcount(char const *s, char c);
+int			ft_charset_in(char c, char charset);
+unsigned int	ft_is_spaces(char c);
 
+/* Error */
 
-// INSTRUCTIONS
-
-void	swap_alpha(t_stack **stack, char *Stack);
-void    push_alpha(t_stack **srcstack, t_stack **deststack, char *dest);
-void    rotate_down(t_stack **stack, char *str);
-void    rotate_up(t_stack **stack, char *str);
-
-// OPERATIONS
-
-void	swap(t_stack **stack_a, t_stack **stack_b, char *move);
-void	rotate(t_stack **stack_a, t_stack **stack_b, char *move);
-void	rev_rotate(t_stack **stack_a, t_stack **stack_b, char *move);
-void	push(t_stack **stack_a, t_stack **stack_b, char *move);
-int	    do_move(t_stack **stack_a, t_stack **stack_b, char *move);
-
-//UTILS
-
-int     ft_atoi(const char *str);
-int     ft_strlen(const char *str);
-void	ft_putstr(const char *str);
-int     ft_strcmp(char *s1, char *s2);
-int	ft_abs(int nb);
-
-//ALGO
-
-t_stack     *sort_two(t_stack **stack);
-t_stack     *sort_three(t_stack **stack);
-
-//MOVES
-
-int	get_closest(t_stack *stack, int nb);
-int	get_move(t_stack *stack_a, int nb);
-int	get_best_move(t_stack *stack_a, t_stack *stack_b);
-
-//COST
-int	get_cheapest_cost(t_stack *stack_b);
-
-//ERROR
-
-unsigned int	stack_check_duplicate(t_stack *pile);
-unsigned int	check_zero(char const *str);
-unsigned int	stack_special_case(int argc, char **argv);
+void		exit_error(t_stack **stack_a, t_stack **stack_b);
+unsigned int	verif_input(int ac, char **av);
 unsigned int	check_error(int argc, char **argv, t_stack *stack);
+
+/* Input Check */
+int			check_between_arg(int ac,char **av);
+int			input_correct_check(char **av);
+int			is_digit(char c);
+int			is_sign(char c);
+int			nbstr_cmp(const char *s1, const char *s2);
+t_stack		*stack_init(int argc, char **argv, t_stack *stack_a);
 
 #endif
