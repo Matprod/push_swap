@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phunguye <phunguye@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Matprod <matprod42@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/21 21:51:55 by phunguye          #+#    #+#             */
-/*   Updated: 2022/11/21 21:51:55 by phunguye         ###   ########.fr       */
+/*   Created: 2024/03/12 16:37:39 by Matprod           #+#    #+#             */
+/*   Updated: 2024/03/12 16:37:39 by Matprod          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+
 
 #include "../push_swap.h"
 
@@ -16,14 +18,6 @@
 *	Pushes all the elements of stack a into stack b, except the three last ones.
 *	Pushes the smaller values first, and then the larger values to help with
 *	sorting efficiency.
-int pushed --> tracks the number of elements in stack_a pushed to stack_b
-int i	   --> tracks the element currently on in stack_a
-
-1. while 1/2 of stack_a elements have not been pushed and stacksize_a is above 
-six (no point of doing this if lower)
-	1. if the value is on the smaller size, push it to b
-	2. increment pushed counter by 1
-2. while there are more than 3 push remaining to stack_b
 */
 void	push_all_save_three(t_stack **stack_a, t_stack **stack_b)
 {
