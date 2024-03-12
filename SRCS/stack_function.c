@@ -6,7 +6,7 @@
 /*   By: Matprod <matprod42@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 15:21:56 by phunguye          #+#    #+#             */
-/*   Updated: 2024/03/12 16:17:38 by Matprod          ###   ########.fr       */
+/*   Updated: 2024/03/12 16:39:54 by Matprod          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,10 @@ void	stack_add_bottom(t_stack **stack, t_stack *newstack)
 	if (*stack)
 	{
 		last = get_stack_bottom(*stack);
-		last->next = new;
+		last->next = newstack;
 	}
 	else
-		*stack = new;
+		*stack = newstack;
 }
 
 t_stack	*get_stack_bottom(t_stack *stack)
