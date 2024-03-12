@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
 /* do_rev_rotate_both:
 *	Reverse rotates both stack A and B until one of them is in position.
 *	The given cost is negative since both positions are in the bottom half
@@ -93,10 +94,7 @@ static void	do_rotate_b(t_stack **b, int *cost)
 /* do_move:
 *	Chooses which move to make to get the B stack element to the correct
 *	position in stack A.
-*	If the costs of moving stack A and B into position match (i.e. both negative
-*	of both positive), both will be	rotated or reverse rotated at the same time.
-*	They might also be rotated separately, before finally pushing the top B element
-*	to the top stack A.
+*	It depends of the cost.
 */
 void	do_move(t_stack **a, t_stack **b, int cost_a, int cost_b)
 {

@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_argv.c                                       :+:      :+:    :+:   */
+/*   init_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Matprod <matprod42@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 17:38:39 by Matprod           #+#    #+#             */
-/*   Updated: 2024/02/01 18:09:06 by Matprod          ###   ########.fr       */
+/*   Updated: 2024/03/12 16:18:55 by Matprod          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-t_stack *stack_fill(t_stack *stack_a,int size, char **av, int i)
+/* stack_fill:
+* Create and fill the stack A with every numbers in the argv
+*/
+t_stack	*stack_fill(t_stack *stack_a, int size, char **av, int i)
 {
-
 	t_stack	*new;
 
 	while (i < size)
@@ -25,7 +27,7 @@ t_stack *stack_fill(t_stack *stack_a,int size, char **av, int i)
 			free_stack(new);
 			return (NULL);
 		}
-		if(!stack_a)
+		if (!stack_a)
 		{
 			stack_a = stack_new(new->value);
 			free_stack(new);
@@ -34,11 +36,15 @@ t_stack *stack_fill(t_stack *stack_a,int size, char **av, int i)
 			stack_add_bottom(&stack_a, new);
 		i++;
 	}
-
-	return(stack_a);
-
+	return (stack_a);
 }
 
+/* stack_init:
+*	Check if there are 2 arguments in argv or if it's more than 3,
+*	(2 for a string with space between every number
+*	 3 for multiple string in the argv)
+*	Then split the space if it's two and fill the stack or just fill
+*/
 t_stack	*stack_init(int argc, char **argv, t_stack *stack_a)
 {
 	int		size;
@@ -56,6 +62,5 @@ t_stack	*stack_init(int argc, char **argv, t_stack *stack_a)
 	}
 	else if (argc >= 3)
 		stack_a = stack_fill(stack_a, argc, argv, 1);
-	return(stack_a);
+	return (stack_a);
 }
-

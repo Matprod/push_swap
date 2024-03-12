@@ -23,17 +23,17 @@
 typedef struct s_stack
 {
 	long int				value;
-	int				index;
-	int				pos;
-	int				target_pos;
-	int				cost_a;
-	int				cost_b;
-	struct s_stack	*next;
+	int						index;
+	int						pos;
+	int						target_pos;
+	int						cost_a;
+	int						cost_b;
+	struct s_stack			*next;
 }	t_stack;
 
 /* Initialization */
 
-t_stack 	*stack_fill(t_stack *stack_a,int size, char **av, int i);
+t_stack		*stack_fill(t_stack *stack_a, int size, char **av, int i);
 void		assign_index(t_stack *stack_a, int ac);
 
 /* Sorting Algorithms */
@@ -75,9 +75,8 @@ void		do_rrb(t_stack **stack_b);
 t_stack		*get_stack_bottom(t_stack *stack);
 t_stack		*get_stack_before_bottom(t_stack *stack);
 t_stack		*stack_new(long int value);
-void		stack_add_bottom(t_stack **stack, t_stack *new);
+void		stack_add_bottom(t_stack **stack, t_stack *newstack);
 int			get_stack_size(t_stack	*stack);
-
 
 /* Utils */
 
@@ -89,16 +88,17 @@ int			nb_abs(int nb);
 void		print_stack(t_stack *stack);
 size_t		ft_wordcount(char const *s, char c);
 int			ft_charset_in(char c, char charset);
-unsigned int	ft_is_spaces(char c);
+unsigned	int	ft_is_spaces(char c);
+int			too_long_conditiion(char **av, int i, int j);
 
 /* Error */
 
 void		exit_error(t_stack **stack_a, t_stack **stack_b);
-unsigned int	verif_input(int ac, char **av);
-unsigned int	check_error(int argc, char **argv, t_stack *stack);
+unsigned	int	verif_input(int ac, char **av);
+unsigned	int	check_error(int argc, char **argv, t_stack *stack);
 
 /* Input Check */
-int			check_between_arg(int ac,char **av);
+int			check_between_arg(int ac, char **av);
 int			input_correct_check(char **av);
 int			is_digit(char c);
 int			is_sign(char c);

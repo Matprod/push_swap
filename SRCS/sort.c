@@ -24,7 +24,6 @@ six (no point of doing this if lower)
 	1. if the value is on the smaller size, push it to b
 	2. increment pushed counter by 1
 2. while there are more than 3 push remaining to stack_b
-
 */
 void	push_all_save_three(t_stack **stack_a, t_stack **stack_b)
 {

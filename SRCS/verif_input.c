@@ -6,12 +6,16 @@
 /*   By: Matprod <matprod42@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 18:06:52 by Matprod           #+#    #+#             */
-/*   Updated: 2024/02/01 18:07:21 by Matprod          ###   ########.fr       */
+/*   Updated: 2024/03/12 16:16:52 by Matprod          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
+/* checkzero:
+Check in the input if there is a zero
+Return 1 if there is a zero or return 0
+*/
 static unsigned int	check_zero(char const *str)
 {
 	unsigned int	i;
@@ -30,6 +34,9 @@ static unsigned int	check_zero(char const *str)
 	return (1);
 }
 
+/*verif_input:
+*	
+*/
 unsigned int	verif_input(int ac, char **av)
 {
 	int	i;
@@ -50,50 +57,52 @@ unsigned int	verif_input(int ac, char **av)
 	return (1);
 }
 
-static int ac_equal_two(char **av)
+static	int	ac_equal_two(int i, char **av)
 {
-	int	i;
-
-	i = 0;
-    while (av[1][i] != '\0')
-    {
-		while(av[1][i] && av[1][i] == ' ')
-      		i++;
-		if(av[1][i] == '-' || av[1][i] == '+')
+	while (av[1][i] != '\0')
+	{
+		while (av[1][i] && av[1][i] == ' ')
+			i++;
+		if (av[1][i] == '-' || av[1][i] == '+')
 		{
-			if((av[1][i+1] >= '0' && av[1][i+1] <= '9') && i == 0)
+			if ((av[1][i + 1] >= '0' && av[1][i + 1] <= '9') && i == 0)
 				i++;
-			else if((av[1][i+1] >= '0' && av[1][i+1] <= '9')&&(av[1][i - 1] == ' ') && i != 0)
-				i++;
+			else if (av[1][i + 1] > 47 && av[1][i + 1] < 58)
+			{
+				if ((av[1][i - 1] == ' ') && i != 0)
+					i++;
+				else
+					return (0);
+			}
 			else
-				return(0);
+				return (0);
 		}
-		else if((av[1][i] >= '0' && av[1][i] <= '9'))
+		else if ((av[1][i] >= '0' && av[1][i] <= '9'))
 			i++;
 		else
 			return (0);
-    }
-    return (1);
+	}
+	return (1);
 }
 
-static int ac_more_than_two(int j,int i, char **av)
+static int	ac_more_than_two(int j, int i, char **av)
 {
-	while(av[i])
+	while (av[i])
 	{
-		while(av[i][j])
+		while (av[i][j])
 		{
-			while(av[i][j] == ' ')
+			while (av[i][j] == ' ')
 				j++;
-			if(av[i][j] == '-' || av[i][j] == '+')
+			if (av[i][j] == '-' || av[i][j] == '+')
 			{
-				if((av[i][j+1] >= '0' && av[i][j+1] <= '9') && j == 0)
+				if ((av[i][j + 1] >= '0' && av[i][j + 1] <= '9') && j == 0)
 					j++;
-				else if((av[i][j+1] >= '0' && av[i][j+1] <= '9')&&(av[i][j - 1] == ' ') && j != 0)
+				else if (too_long_conditiion(av, i, j))
 					j++;
 				else
-					return(0);
+					return (0);
 			}
-			else if((av[i][j] >= '0' && av[i][j] <= '9'))
+			else if ((av[i][j] >= '0' && av[i][j] <= '9'))
 				j++;
 			else
 				return (0);
@@ -103,20 +112,25 @@ static int ac_more_than_two(int j,int i, char **av)
 	}
 	return (1);
 }
-int check_between_arg(int ac,char **av)
+
+int	check_between_arg(int ac, char **av)
 {
 	int	i;
-	int j;
+	int	j;
+
 	if (!av)
-		return(0);
-    if (ac == 2)
-		return(ac_equal_two(av));
-	else if(ac > 2)
+		return (0);
+	if (ac == 2)
+	{
+		i = 0;
+		return (ac_equal_two(i, av));
+	}
+	else if (ac > 2)
 	{
 		j = 0;
 		i = 1;
-		return(ac_more_than_two(j,i,av));
+		return (ac_more_than_two(j, i, av));
 	}
 	else
-		return(0);
-} 
+		return (0);
+}

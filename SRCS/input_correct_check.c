@@ -6,13 +6,16 @@
 /*   By: Matprod <matprod42@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 14:17:30 by phunguye          #+#    #+#             */
-/*   Updated: 2024/01/30 16:34:02 by Matprod          ###   ########.fr       */
+/*   Updated: 2024/03/10 19:54:37 by Matprod          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-
+/* contains_duplicates:
+*Check if there are duplicates number
+*return 1 for duplicates or 0
+*/
 unsigned int	contains_duplicates(t_stack *stack)
 {
 	t_stack	*begin;

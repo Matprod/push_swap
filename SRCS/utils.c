@@ -13,9 +13,9 @@
 #include "../push_swap.h"
 
 /* free_stack:
-*	Frees each element in a given stack and sets the stack pointer to NULL.
+*	Free the memory of the stack with a'free' for every node in the stack 
 */
-void free_stack(t_stack *stack)
+void	free_stack(t_stack *stack)
 {
 	t_stack	*tmp;
 
@@ -71,6 +71,10 @@ void	exit_error(t_stack **stack_a, t_stack **stack_b)
 	exit (0);
 }
 
+/*	ft_wordcount:
+*	Return the number of words in a string with a separator 'char c'
+*	which can be replace by a space for example
+*/
 size_t	ft_wordcount(char const *s, char c)
 {
 	size_t	count;

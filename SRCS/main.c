@@ -6,7 +6,7 @@
 /*   By: Matprod <matprod42@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 14:11:15 by phunguye          #+#    #+#             */
-/*   Updated: 2024/02/01 18:04:18 by Matprod          ###   ########.fr       */
+/*   Updated: 2024/03/10 20:18:31 by Matprod          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,12 @@ int	is_sorted(t_stack *stack)
 	return (1);
 }
 
-
+/* push_swap:
+*	The summit of the algo,
+*	Check if there are two numbers and if it's sorted
+*	Then check if there are three numbers
+*	Call the function 'sort' for starting the algorythm
+*/
 void	push_swap(t_stack **stack_a, t_stack **stack_b, int stack_size)
 {
 	if (stack_size == 2 && !is_sorted(*stack_a))
@@ -40,7 +45,13 @@ void	push_swap(t_stack **stack_a, t_stack **stack_b, int stack_size)
 		sort(stack_a, stack_b);
 }
 
-
+/* main:
+*	This programs start with checking if the argument are correct
+*	Then we create the stack and fill it zith the numbers
+*	Afterthat, it check if there are any errors in the stack
+*	Then we assign an index for every numbers of the stack
+*	And we call the algo and free every stacks at the end
+*/
 int	main(int ac, char **av)
 {
 	t_stack	*stack_a;
@@ -48,10 +59,10 @@ int	main(int ac, char **av)
 	int		stack_size;
 
 	stack_a = NULL;
-	if(check_between_arg(ac,av) == 0)
-		return(write(STDERR_FILENO, "Error\n", ft_strlen("Error\n")));
+	if (check_between_arg(ac, av) == 0)
+		return (write(STDERR_FILENO, "Error\n", ft_strlen("Error\n")));
 	else
-		stack_a = stack_init(ac,av,stack_a);
+		stack_a = stack_init(ac, av, stack_a);
 	if (check_error(ac, av, stack_a))
 	{
 		free_stack(stack_a);
@@ -61,7 +72,7 @@ int	main(int ac, char **av)
 	stack_size = get_stack_size(stack_a);
 	assign_index(stack_a, stack_size + 1);
 	push_swap(&stack_a, &stack_b, stack_size);
-	//print_stack(stack_a);
 	free_stack(stack_a);
 	free_stack(stack_b);
 }
+//print_stack(stack_a);
