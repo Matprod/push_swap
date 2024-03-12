@@ -3,66 +3,68 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phunguye <phunguye@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Matprod <matprod42@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/30 15:20:16 by phunguye          #+#    #+#             */
-/*   Updated: 2022/12/02 15:42:38 by phunguye         ###   ########.fr       */
+/*   Created: 2023/12/06 16:43:00 by mvoisin           #+#    #+#             */
+/*   Updated: 2023/12/07 21:57:44 by Matprod          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_print_percent(void)
+int	check_format(va_list args, char c)
 {
-	write(1, "%", 1);
-	return (1);
-}
+	int	print_len;
 
-int	ft_eval_format(va_list args, const char format)
-{
-	int	print_count;
-
-	print_count = 0;
-	if (format == 'c')
-		print_count += ft_print_char(va_arg(args, int));
-	else if (format == 's')
-		print_count += ft_print_str(va_arg(args, char *));
-	else if (format == 'p')
-		print_count += ft_print_ptr(va_arg(args, unsigned long));
-	else if (format == 'd' || format == 'i')
-		print_count += ft_print_nbr(va_arg(args, int));
-	else if (format == 'u')
-		print_count += ft_print_unbr(va_arg(args, unsigned int));
-	else if (format == 'x' || format == 'X')
-		print_count += ft_print_hex(va_arg(args, unsigned int), format);
-	else if (format == '%')
-		print_count += ft_print_percent();
-	return (print_count);
-}
-
-int	ft_print_char(int c)
-{
-	write(1, &c, 1);
-	return (1);
+	print_len = 0;
+	if (c == 'c')
+		print_len += print_char(va_arg(args, int));
+	else if (c == 's')
+		print_len += print_str(va_arg(args, char *));
+	else if (c == 'd' || c == 'i')
+		print_len += print_nbr(va_arg(args, int));
+	else if (c == 'u')
+		print_len += print_unsigned_nbr(va_arg(args, unsigned int));
+	else if (c == 'p')
+		print_len += print_ptr(va_arg(args, unsigned long));
+	else if (c == 'x')
+		print_len += print_hex(va_arg(args, unsigned int));
+	else if (c == 'X')
+		print_len += print_hex_caps(va_arg(args, unsigned int));
+	else if (c == '%')
+		print_len += print_percent();
+	return (print_len);
 }
 
 int	ft_printf(const char *str, ...)
 {
-	int		i;
 	va_list	args;
-	int		print_count;
+	int		print_len;
 
-	i = 0;
-	print_count = 0;
+	print_len = 0;
 	va_start(args, str);
-	while (str[i])
+	if (!str)
+		return (-1);
+	while (*str)
 	{
-		if (str[i] == '%')
-			print_count += ft_eval_format(args, str[i++ + 1]);
+		if (*str == '%')
+		{
+			print_len += check_format(args, *(str + 1));
+			str++;
+		}
 		else
-			print_count += ft_print_char(str[i]);
-		i++;
+			print_len += print_char(*str);
+		str++;
 	}
 	va_end(args);
-	return (print_count);
+	return (print_len);
 }
+
+/* #include <stdio.h>
+#include <limits.h>
+
+int main(void)
+{
+	printf("len = %d ", ft_printf(" %x ", 0));
+	return (0);
+} */

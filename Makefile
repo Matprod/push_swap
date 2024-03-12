@@ -73,7 +73,7 @@ src  = 		cost.c\
 			utils3.c\
 			verif_input.c\
 
-SRCS = $(addprefix ./SRCS/, $(src))
+SRCS = $(addprefix ./MANDATORY/, $(src))
 OBJS = $(SRCS:c=o)
 
 $(LIBFTPRINTF):
@@ -88,13 +88,13 @@ $(LIBFTPRINTF):
 	@echo $(NEWSECTION)
 	$(MAKE) -C ./libftprintf 
 	@echo $(NEWSECTION)
-	@echo "$(GREEN)Libftprintf library built successfully!$(END)"
+	@echo "$(GREEN)                        Libftprintf library built successfully!$(END)"
 	@echo $(NEWSECTION)
 
 $(NAME): $(LIBFTPRINTF) $(OBJS)
-	@echo "$(UWhite)Compiling push_swap program...$(END)"
+	@echo "$(URed)                      Compiling push_swap program...                                         $(END)"
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFTPRINTF) -o $(NAME)
-	@echo "$(GREEN)push_swap program compiled!$(END)"
+	@echo "$(GREEN)                                push_swap program compiled!$(END)"
 	@echo $(NEWSECTION)
 
 ######### RULES ########
@@ -102,7 +102,7 @@ all: $(NAME)
 
 clean:
 	@echo "$(YELLOW)Removing object files...$(END)"
-	@rm -rf ./SRCS/*.o
+	@rm -rf ./MANDATORY/*.o
 	$(MAKE) clean -C ./libftprintf
 	@echo "$(GREEN)Object files deleted!$(END)"
 	@echo $(NEWSECTION)

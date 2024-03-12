@@ -6,11 +6,12 @@
 /*   By: Matprod <matprod42@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 18:06:52 by Matprod           #+#    #+#             */
-/*   Updated: 2024/03/12 16:16:52 by Matprod          ###   ########.fr       */
+/*   Updated: 2024/03/12 18:42:07 by Matprod          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
 
 /* checkzero:
 Check in the input if there is a zero
@@ -35,7 +36,9 @@ static unsigned int	check_zero(char const *str)
 }
 
 /*verif_input:
-*	
+*	Verify if it's a number with an operator or not and check if there
+*	is a zero.
+*	Return a 0 if the input is incorrect or 1.
 */
 unsigned int	verif_input(int ac, char **av)
 {

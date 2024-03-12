@@ -1,19 +1,11 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: phunguye <phunguye@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/05/02 16:17:56 by phunguye          #+#    #+#              #
-#    Updated: 2022/05/02 16:17:56 by phunguye         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
 SRCS =	ft_printf.c\
-		ft_printf_util.c\
-		sub_utils.c\
-		ft_print_hex.c\
-
+		print_nbr.c\
+		print_ptr.c\
+		print_hex.c\
+		print_str.c\
+		print_unsigned_nbr.c\
+		utils_output.c\
+		
 OBJS = $(SRCS:c=o)
 
 CC = gcc

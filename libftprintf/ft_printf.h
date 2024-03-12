@@ -3,40 +3,49 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: phunguye <phunguye@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Matprod <matprod42@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/30 15:22:20 by phunguye          #+#    #+#             */
-/*   Updated: 2022/12/02 15:43:59 by phunguye         ###   ########.fr       */
+/*   Created: 2023/12/06 16:43:03 by mvoisin           #+#    #+#             */
+/*   Updated: 2024/03/12 18:01:15 by Matprod          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include <stdarg.h>
 # include <unistd.h>
-# include <stdint.h>
-# include <stdlib.h>
-# include "./libft/libft.h"
+# include <stdarg.h>
 
-int		ft_printf(const char *format, ...);
-int		ft_eval_format(va_list args, const char format);
-int		ft_print_char(int c);
+void	ft_putchar(char c);
 
-int		ft_print_percent(void);
-int		ft_print_str(char *str);
-int		ft_print_ptr(unsigned long ptr);
-int		ft_print_nbr(int nbr);
-int		ft_print_unbr(unsigned int unbr);
+int		print_char(char c);
 
-int		ft_ptrlen(uintptr_t n);
-void	ft_putptr(uintptr_t n);
-int		ft_nbrlen(int n);
-int		ft_unbrlen(unsigned int n);
-void	ft_putunbr_fd(unsigned int n, int fd);
+int		ft_strlen_printf(char *s);
 
-int		ft_hexlen(unsigned int n);
-void	ft_puthex(unsigned int n, const char format);
-int		ft_print_hex(unsigned int nbr, const char format);
+void	ft_putstr(char *s);
+
+int		print_str(char *s);
+
+void	ft_putnbr(int n);
+
+int		print_nbr(int n);
+
+void	putnbr_base(unsigned long n, char *base);
+
+void	put_unsigned_number(unsigned int n);
+
+int		print_unsigned_nbr(unsigned int n);
+
+int		print_percent(void);
+
+int		print_ptr(unsigned long ptr);
+
+int		print_hex(unsigned int num);
+
+int		print_hex_caps(unsigned int num);
+
+int		check_format(va_list args, char c);
+
+int		ft_printf(const char *str, ...);
 
 #endif
