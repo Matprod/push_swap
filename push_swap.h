@@ -13,10 +13,14 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+# define BUFFER_SIZE 42
 # include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
+# include <sys/types.h>
+# include <sys/stat.h>
+# include <fcntl.h>
 # include "./libftprintf/ft_printf.h"
 # include "./libftprintf/libft/libft.h"
 
@@ -30,6 +34,7 @@ typedef struct s_stack
 	int						cost_b;
 	struct s_stack			*next;
 }	t_stack;
+
 
 /* Initialization */
 
@@ -104,5 +109,34 @@ int			is_digit(char c);
 int			is_sign(char c);
 int			nbstr_cmp(const char *s1, const char *s2);
 t_stack		*stack_init(int argc, char **argv, t_stack *stack_a);
+
+/*		GNL		*/
+char	*get_next_line(int fd);
+
+char	*read_and_stock(int fd, char *stack);
+
+size_t	ft_strlen(const char *s);
+
+char	*ft_strjoin_gnl(char *s1, char const *s2);
+
+int		ft_strchr_gnl(const char *s, int c);
+
+char	*ft_strdup(const char *s);
+
+/*		BONUS     */
+
+char	**dup_map(int argc, char **argv);
+
+void	push(t_stack **src, t_stack **dst);
+
+void	rev_rotate(t_stack **stack);
+
+void	swap(t_stack *stack);
+
+void	rotate(t_stack **stack);
+
+int		do_move_bonus(t_stack **stack_a, t_stack **stack_b, char *move);
+
+int		ft_strcmp(const char *s1, const char *s2);
 
 #endif
