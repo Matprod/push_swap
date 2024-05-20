@@ -6,7 +6,7 @@
 /*   By: Matprod <matprod42@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 17:38:39 by Matprod           #+#    #+#             */
-/*   Updated: 2024/03/12 16:18:55 by Matprod          ###   ########.fr       */
+/*   Updated: 2024/05/21 00:02:18 by Matprod          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,27 @@
 /* stack_fill:
 * Create and fill the stack A with every numbers in the argv
 */
+
+static int	if_more_than_int(t_stack *stack_a, char **av, int i)
+{
+	if (ft_atoi_ps(av[i]) == 0)
+	{
+		if (stack_a)
+			free_stack(stack_a);
+		return (0);
+	}
+	return (1);
+}
+
 t_stack	*stack_fill(t_stack *stack_a, int size, char **av, int i)
 {
 	t_stack	*new;
 
 	while (i < size)
 	{
-		new = stack_new(ft_atoi(av[i]));
+		if (if_more_than_int(stack_a, av, i) == 0)
+			return (NULL);
+		new = stack_new(ft_atoi_ps(av[i]));
 		if (!new)
 		{
 			free_stack(new);

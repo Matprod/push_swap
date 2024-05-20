@@ -123,4 +123,4 @@ fclean: clean
 	
 re: fclean all
 
-re_bonus: fclean bonus
+re_bonus: fclean all bonus

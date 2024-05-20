@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   verif_input.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvoisin <mvoisin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: Matprod <matprod42@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 18:06:52 by Matprod           #+#    #+#             */
-/*   Updated: 2024/05/16 08:33:17 by mvoisin          ###   ########.fr       */
+/*   Updated: 2024/05/21 00:03:41 by Matprod          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
 
 /* checkzero:
 Check in the input if there is a zero

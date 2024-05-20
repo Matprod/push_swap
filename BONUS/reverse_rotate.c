@@ -27,7 +27,6 @@ void	rev_rotate(t_stack **stack)
 	t_stack	*tail;
 	t_stack	*before_tail;
 
-
 	tail = get_stack_bottom(*stack);
 	before_tail = get_stack_before_bottom(*stack);
 	tmp = *stack;
@@ -52,9 +51,8 @@ void	do_rra(t_stack **stack_a)
 */
 void	do_rrb(t_stack **stack_b)
 {
-	if(!stack_b)
-		
-	rev_rotate(stack_b);
+	if (!stack_b)
+		rev_rotate(stack_b);
 	ft_printf("rrb\n");
 }
 

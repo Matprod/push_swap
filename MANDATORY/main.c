@@ -6,7 +6,7 @@
 /*   By: Matprod <matprod42@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 14:11:15 by phunguye          #+#    #+#             */
-/*   Updated: 2024/03/10 20:18:31 by Matprod          ###   ########.fr       */
+/*   Updated: 2024/05/20 23:58:36 by Matprod          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,4 +75,3 @@ int	main(int ac, char **av)
 	free_stack(stack_a);
 	free_stack(stack_b);
 }
-//print_stack(stack_a);

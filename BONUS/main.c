@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvoisin <mvoisin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: Matprod <matprod42@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 14:11:15 by phunguye          #+#    #+#             */
-/*   Updated: 2024/05/16 16:05:02 by mvoisin          ###   ########.fr       */
+/*   Updated: 2024/05/20 23:38:23 by Matprod          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	checker(t_stack **stack_a, t_stack **stack_b)
 		free(line);
 	}
 }
+
 int	main(int ac, char **av)
 {
 	t_stack	*stack_a;

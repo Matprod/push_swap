@@ -35,7 +35,6 @@ typedef struct s_stack
 	struct s_stack			*next;
 }	t_stack;
 
-
 /* Initialization */
 
 t_stack		*stack_fill(t_stack *stack_a, int size, char **av, int i);
@@ -95,6 +94,7 @@ size_t		ft_wordcount(char const *s, char c);
 int			ft_charset_in(char c, char charset);
 unsigned	int	ft_is_spaces(char c);
 int			too_long_conditiion(char **av, int i, int j);
+long int	ft_atoi_ps(const char *str);
 
 /* Error */
 
@@ -111,32 +111,32 @@ int			nbstr_cmp(const char *s1, const char *s2);
 t_stack		*stack_init(int argc, char **argv, t_stack *stack_a);
 
 /*		GNL		*/
-char	*get_next_line(int fd);
+char		*get_next_line(int fd);
 
-char	*read_and_stock(int fd, char *stack);
+char		*read_and_stock(int fd, char *stack);
 
-size_t	ft_strlen(const char *s);
+size_t		ft_strlen(const char *s);
 
-char	*ft_strjoin_gnl(char *s1, char const *s2);
+char		*ft_strjoin_gnl(char *s1, char const *s2);
 
-int		ft_strchr_gnl(const char *s, int c);
+int			ft_strchr_gnl(const char *s, int c);
 
-char	*ft_strdup(const char *s);
+char		*ft_strdup(const char *s);
 
 /*		BONUS     */
 
-char	**dup_map(int argc, char **argv);
+char		**dup_map(int argc, char **argv);
 
-void	push(t_stack **src, t_stack **dst);
+void		push(t_stack **src, t_stack **dst);
 
-void	rev_rotate(t_stack **stack);
+void		rev_rotate(t_stack **stack);
 
-void	swap(t_stack *stack);
+void		swap(t_stack *stack);
 
-void	rotate(t_stack **stack);
+void		rotate(t_stack **stack);
 
-int		do_move_bonus(t_stack **stack_a, t_stack **stack_b, char *move);
+int			do_move_bonus(t_stack **stack_a, t_stack **stack_b, char *move);
 
-int		ft_strcmp(const char *s1, const char *s2);
+int			ft_strcmp(const char *s1, const char *s2);
 
 #endif

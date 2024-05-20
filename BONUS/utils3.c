@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils3.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvoisin <mvoisin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: Matprod <matprod42@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 17:27:33 by Matprod           #+#    #+#             */
-/*   Updated: 2024/05/16 15:28:25 by mvoisin          ###   ########.fr       */
+/*   Updated: 2024/05/21 00:03:57 by Matprod          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,25 +28,6 @@ int	too_long_conditiion(char **av, int i, int j)
 	else
 		return (0);
 }
-char	**dup_map(int argc, char **argv)
-{
-	char		**dup;
-	
-	int			i;
-
-	dup = malloc(sizeof(char *) * (argc + 1));
-	if (!dup)
-		return (NULL);
-	i = -1;
-	while (++i < argc)
-	{
-		dup[i] = ft_strdup(argv[i]);
-		if (!dup[i])
-			return (NULL);
-	}
-	dup[argc] = 0;
-	return (dup);
-}
 
 int	ft_strcmp(const char *s1, const char *s2)
 {
@@ -57,7 +38,6 @@ int	ft_strcmp(const char *s1, const char *s2)
 		index ++;
 	return ((unsigned char)s1[index] - (unsigned char)s2[index]);
 }
-
 
 int	is_sorted(t_stack *stack)
 {

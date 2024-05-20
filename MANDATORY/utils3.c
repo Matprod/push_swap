@@ -6,7 +6,7 @@
 /*   By: Matprod <matprod42@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 17:27:33 by Matprod           #+#    #+#             */
-/*   Updated: 2024/03/12 16:18:07 by Matprod          ###   ########.fr       */
+/*   Updated: 2024/05/20 23:46:58 by Matprod          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,26 @@ int	too_long_conditiion(char **av, int i, int j)
 	}
 	else
 		return (0);
+}
+
+long int	ft_atoi_ps(const char *str)
+{
+	long int	result;
+	int			sign;
+
+	result = 0;
+	sign = 1;
+	while (*str == ' ' || (*str >= 9 && *str <= 13))
+		str++;
+	if (*str == '+' || *str == '-')
+	{
+		if (*str == '-')
+			sign = -1;
+		str++;
+	}
+	while (*str >= '0' && *str <= '9')
+		result = (result * 10) + *str++ - '0';
+	if (result > INT_MAX || result < INT_MIN)
+		return (0);
+	return (result * sign);
 }
