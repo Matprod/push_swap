@@ -12,9 +12,6 @@
 
 #include "../push_swap.h"
 
-/* free_stack:
-*	Free the memory of the stack with a'free' for every node in the stack 
-*/
 void	free_stack(t_stack *stack)
 {
 	t_stack	*tmp;
@@ -27,11 +24,6 @@ void	free_stack(t_stack *stack)
 	}
 }
 
-/* get_stack_size:
-*	Returns the number of elements in a stack.
-if stack is not NULL (last stack) add 1 to size
-and move to next stack
-*/
 int	get_stack_size(t_stack	*stack)
 {
 	int	size;
@@ -47,9 +39,6 @@ int	get_stack_size(t_stack	*stack)
 	return (size);
 }
 
-/* get_stack_before_bottom:
-*	Returns the second to last element of the stack.
-*/
 t_stack	*get_stack_before_bottom(t_stack *stack)
 {
 	while (stack && stack->next && stack->next->next != NULL)
@@ -57,10 +46,6 @@ t_stack	*get_stack_before_bottom(t_stack *stack)
 	return (stack);
 }
 
-/* exit_error:
-*   Writes "Error\n" to the standard output after freeing stack a and b.
-*	Exits with standard error code 1.
-*/
 void	exit_error(t_stack **stack_a, t_stack **stack_b)
 {
 	if (stack_a == NULL || *stack_a != NULL)
@@ -71,10 +56,6 @@ void	exit_error(t_stack **stack_a, t_stack **stack_b)
 	exit (0);
 }
 
-/*	ft_wordcount:
-*	Return the number of words in a string with a separator 'char c'
-*	which can be replace by a space for example
-*/
 size_t	ft_wordcount(char const *s, char c)
 {
 	size_t	count;

@@ -81,15 +81,15 @@ t_stack		*get_stack_before_bottom(t_stack *stack);
 t_stack		*stack_new(long int value);
 void		stack_add_bottom(t_stack **stack, t_stack *newstack);
 int			get_stack_size(t_stack	*stack);
+void		free_stack(t_stack *stack);
+void		print_stack(t_stack *stack);
 
 /* Utils */
 
-void		free_stack(t_stack *stack);
 void		free_array(char **array);
 long int	ft_atol(const char *str);
 void		ft_putstr(char *str);
 int			nb_abs(int nb);
-void		print_stack(t_stack *stack);
 size_t		ft_wordcount(char const *s, char c);
 int			ft_charset_in(char c, char charset);
 unsigned	int	ft_is_spaces(char c);

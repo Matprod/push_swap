@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils3.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Matprod <matprod42@gmail.com>              +#+  +:+       +#+        */
+/*   By: mvoisin <mvoisin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 17:27:33 by Matprod           #+#    #+#             */
-/*   Updated: 2024/05/21 00:03:57 by Matprod          ###   ########.fr       */
+/*   Updated: 2024/05/21 10:56:02 by mvoisin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,26 @@ int	is_sorted(t_stack *stack)
 		stack = stack->next;
 	}
 	return (1);
+}
+
+long int	ft_atoi_ps(const char *str)
+{
+	long int	result;
+	int			sign;
+
+	result = 0;
+	sign = 1;
+	while (*str == ' ' || (*str >= 9 && *str <= 13))
+		str++;
+	if (*str == '+' || *str == '-')
+	{
+		if (*str == '-')
+			sign = -1;
+		str++;
+	}
+	while (*str >= '0' && *str <= '9')
+		result = (result * 10) + *str++ - '0';
+	if (result > INT_MAX || result < INT_MIN)
+		return (0);
+	return (result * sign);
 }

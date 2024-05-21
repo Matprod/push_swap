@@ -3,19 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   input_correct_check.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Matprod <matprod42@gmail.com>              +#+  +:+       +#+        */
+/*   By: mvoisin <mvoisin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 14:17:30 by phunguye          #+#    #+#             */
-/*   Updated: 2024/03/10 19:54:37 by Matprod          ###   ########.fr       */
+/*   Updated: 2024/05/21 13:44:26 by mvoisin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-/* contains_duplicates:
-*Check if there are duplicates number
-*return 1 for duplicates or 0
-*/
 unsigned int	contains_duplicates(t_stack *stack)
 {
 	t_stack	*begin;

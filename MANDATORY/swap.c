@@ -12,8 +12,6 @@
 
 #include "../push_swap.h"
 
-/*swaps the first two elements of the stack that is passed to it*/
-//can I rewrite with [][]? strings?
 void	swap(t_stack *stack)
 {
 	int	tmp_value;

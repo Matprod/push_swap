@@ -44,9 +44,6 @@ void	get_cost(t_stack **stack_a, t_stack **stack_b)
 	}
 }
 
-/* nb_abs:
-*	Return the absolute value of the number	
-*/
 int	nb_abs(int a)
 {
 	if (a < 0)

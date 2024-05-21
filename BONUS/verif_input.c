@@ -3,19 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   verif_input.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Matprod <matprod42@gmail.com>              +#+  +:+       +#+        */
+/*   By: mvoisin <mvoisin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 18:06:52 by Matprod           #+#    #+#             */
-/*   Updated: 2024/05/21 00:03:41 by Matprod          ###   ########.fr       */
+/*   Updated: 2024/05/21 13:45:50 by mvoisin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-/* checkzero:
-Check in the input if there is a zero
-Return 1 if there is a zero or return 0
-*/
 static unsigned int	check_zero(char const *str)
 {
 	unsigned int	i;
@@ -34,11 +30,6 @@ static unsigned int	check_zero(char const *str)
 	return (1);
 }
 
-/*verif_input:
-*	Verify if it's a number with an operator or not and check if there
-*	is a zero.
-*	Return a 0 if the input is incorrect or 1.
-*/
 unsigned int	verif_input(int ac, char **av)
 {
 	int	i;

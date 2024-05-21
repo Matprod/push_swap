@@ -12,10 +12,6 @@
 
 #include "../push_swap.h"
 
-//Ranks the numbers according to value, starting with 1 for smallest
-//Goes through ptr list -> sets smallest value as 1
-//Assigns (t_stack)highest as stack with largest value but no index (=0)
-//Sets the index of current highest to stack_size (--1) for next.
 void	assign_index(t_stack *stack, int stack_size)
 {
 	t_stack	*ptr;
@@ -52,11 +48,7 @@ Example stack:
 *		value:		 3	 0	 9	 2	 4	 6
 *		index:		[3]	[1]	[6]	[2] [4] [5]
 *		position:	<0>	<1>	<2>	<3> <4> <5>
-	This is used to calculate the cost of moving a certain number to
-*	a certain position. If the above example is stack b, it would cost
-*	nothing (0) to push the first element to stack a. However if we want to
-*	push the highest value, 9, which is in third position, it would cost 2 extra
-*	moves to bring that 9 to the top of b before pushing it to stack a.
+
 */
 void	get_position(t_stack **stack)
 {
@@ -107,14 +99,6 @@ int	get_lowest_index_position(t_stack **stack)
 *	element with the smallest index in A and assigns that as the target position.
 *	So target_pos needs to be the position of index 3, since that is
 *	the "end" of the stack.
-*/
-/*
-moves through stack a and compares element's index with the b index
-if it is less, then target idx will be updated to current element's until 
-element's 	
-index is larger than target indx.
-target position is updated to element's position
-then records it as ints and returns value of target_pos
 */
 static int	get_target(t_stack **a, int b_idx, int target_idx, int target_pos)
 {
