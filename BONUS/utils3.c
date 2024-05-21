@@ -6,7 +6,7 @@
 /*   By: mvoisin <mvoisin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 17:27:33 by Matprod           #+#    #+#             */
-/*   Updated: 2024/05/21 10:56:02 by mvoisin          ###   ########.fr       */
+/*   Updated: 2024/05/21 19:00:45 by mvoisin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,6 @@ long int	ft_atoi_ps(const char *str)
 	while (*str >= '0' && *str <= '9')
 		result = (result * 10) + *str++ - '0';
 	if (result > INT_MAX || result < INT_MIN)
-		return (0);
+		return (2147483648);
 	return (result * sign);
 }

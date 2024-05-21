@@ -6,7 +6,7 @@
 /*   By: mvoisin <mvoisin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 17:38:39 by Matprod           #+#    #+#             */
-/*   Updated: 2024/05/21 13:44:19 by mvoisin          ###   ########.fr       */
+/*   Updated: 2024/05/21 19:00:33 by mvoisin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 static int	if_more_than_int(t_stack *stack_a, char **av, int i)
 {
-	if (ft_atoi_ps(av[i]) == 0)
+	if (ft_atoi_ps(av[i]) == 2147483648)
 	{
-		if (stack_a)
+		if (stack_a != NULL)
 			free_stack(stack_a);
 		return (0);
 	}
@@ -31,7 +31,7 @@ t_stack	*stack_fill(t_stack *stack_a, int size, char **av, int i)
 	{
 		if (if_more_than_int(stack_a, av, i) == 0)
 			return (NULL);
-		new = stack_new(ft_atoi(av[i]));
+		new = stack_new(ft_atoi_ps(av[i]));
 		if (!new)
 		{
 			free_stack(new);
