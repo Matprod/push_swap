@@ -74,6 +74,12 @@ OBJS = $(SRCS:c=o)
 SRCS_BONUS = $(addprefix ./BONUS/, $(src_bonus))
 OBJS_BONUS = $(SRCS_BONUS:c=o)
 
+$(NAME): $(LIBFTPRINTF) $(OBJS)
+	@echo "$(URed)                      Compiling push_swap program...                                         $(END)"
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFTPRINTF) -o $(NAME)
+	@echo "$(GREEN)                                push_swap program compiled!$(END)"
+	@echo $(NEWSECTION)
+
 $(LIBFTPRINTF):
 	@echo "$(FRAME_LINE_CYAN)"
 	@echo "*                                             *"
@@ -89,11 +95,6 @@ $(LIBFTPRINTF):
 	@echo "$(GREEN)                        Libftprintf library built successfully!$(END)"
 	@echo $(NEWSECTION)
 
-$(NAME): $(LIBFTPRINTF) $(OBJS)
-	@echo "$(URed)                      Compiling push_swap program...                                         $(END)"
-	$(CC) $(CFLAGS) $(OBJS) $(LIBFTPRINTF) -o $(NAME)
-	@echo "$(GREEN)                                push_swap program compiled!$(END)"
-	@echo $(NEWSECTION)
 
 $(NAME_BONUS): $(LIBFTPRINTF) $(OBJS_BONUS)
 	@echo "$(URed)                      Compiling push_swap bonus program...                                         $(END)"
@@ -124,3 +125,59 @@ fclean: clean
 re: fclean all
 
 re_bonus: fclean all bonus
+
+NUMBER_OF_TEST = 10000
+
+test5:
+	./push_swap $$(shuf -i 1-2147483647 -n 5) | wc -l
+
+test100:
+	./push_swap $$(shuf -i 1-2147483647 -n 100) | wc -l
+
+test500:
+	./push_swap $$(shuf -i 1-2147483647 -n 500) | wc -l
+
+test_avg5:
+	@max_result=0; \
+	total=0; \
+	for i in $$(seq 1 $(NUMBER_OF_TEST)); do \
+	    result=$$(./push_swap $$(shuf -i 1-2147483647 -n 5) | wc -l); \
+	    total=$$((total + result)); \
+	    if [ $$result -gt $$max_result ]; then \
+	        max_result=$$result; \
+	    fi; \
+	done; \
+	avg=$$((total / $(NUMBER_OF_TEST))); \
+	echo "Moyenne sur $(NUMBER_OF_TEST) échantillons: $(GREEN)$$avg$(END)"; \
+	echo "Plus grand nombre de coups jamais eu: $(RED)$$max_result$(END)"
+
+test_avg100:
+	@max_result=0; \
+	total=0; \
+	for i in $$(seq 1 $(NUMBER_OF_TEST)); do \
+	    result=$$(./push_swap $$(shuf -i 1-2147483647 -n 100) | wc -l); \
+	    total=$$((total + result)); \
+	    if [ $$result -gt $$max_result ]; then \
+	        max_result=$$result; \
+	    fi; \
+	done; \
+	avg=$$((total / $(NUMBER_OF_TEST))); \
+	echo "Moyenne sur $(NUMBER_OF_TEST) échantillons: $(GREEN)$$avg$(END)"; \
+	echo "Plus grand nombre de coups jamais eu: $(RED)$$max_result$(END)"
+
+test_avg500:
+	@max_result=0; \
+	total=0; \
+	for i in $$(seq 1 $(NUMBER_OF_TEST)); do \
+	    result=$$(./push_swap $$(shuf -i 1-2147483647 -n 500) | wc -l); \
+	    total=$$((total + result)); \
+	    if [ $$result -gt $$max_result ]; then \
+	        max_result=$$result; \
+	    fi; \
+	done; \
+	avg=$$((total / $(NUMBER_OF_TEST))); \
+	echo "Average over $(NUMBER_OF_TEST) samples: $(GREEN)$$avg$(END)"; \
+	echo "Largest number of moves: $(RED)$$max_result$(END)"
+
+
+
