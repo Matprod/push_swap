@@ -3,24 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   init_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Matprod <matprod42@gmail.com>              +#+  +:+       +#+        */
+/*   By: mvoisin <mvoisin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 17:38:39 by Matprod           #+#    #+#             */
-/*   Updated: 2024/05/21 00:02:18 by Matprod          ###   ########.fr       */
+/*   Updated: 2024/05/21 18:57:47 by mvoisin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-/* stack_fill:
-* Create and fill the stack A with every numbers in the argv
-*/
-
 static int	if_more_than_int(t_stack *stack_a, char **av, int i)
 {
-	if (ft_atoi_ps(av[i]) == 0)
+	if (ft_atoi_ps(av[i]) == 2147483648)
 	{
-		if (stack_a)
+		if (stack_a != NULL)
 			free_stack(stack_a);
 		return (0);
 	}

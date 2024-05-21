@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils3.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Matprod <matprod42@gmail.com>              +#+  +:+       +#+        */
+/*   By: mvoisin <mvoisin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 17:27:33 by Matprod           #+#    #+#             */
-/*   Updated: 2024/05/20 23:46:58 by Matprod          ###   ########.fr       */
+/*   Updated: 2024/05/21 18:43:16 by mvoisin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,6 @@ long int	ft_atoi_ps(const char *str)
 	while (*str >= '0' && *str <= '9')
 		result = (result * 10) + *str++ - '0';
 	if (result > INT_MAX || result < INT_MIN)
-		return (0);
+		return (2147483648);
 	return (result * sign);
 }

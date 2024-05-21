@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Matprod <matprod42@gmail.com>              +#+  +:+       +#+        */
+/*   By: mvoisin <mvoisin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 14:11:15 by phunguye          #+#    #+#             */
-/*   Updated: 2024/05/20 23:58:36 by Matprod          ###   ########.fr       */
+/*   Updated: 2024/05/21 18:58:58 by mvoisin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ int	main(int ac, char **av)
 	int		stack_size;
 
 	stack_a = NULL;
+	if (ac == 1)
+		return (EXIT_FAILURE);
 	if (check_between_arg(ac, av) == 0)
 		return (write(STDERR_FILENO, "Error\n", ft_strlen("Error\n")));
 	else
