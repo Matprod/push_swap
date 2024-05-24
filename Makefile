@@ -126,7 +126,7 @@ re: fclean all
 
 re_bonus: fclean all bonus
 
-NUMBER_OF_TEST = 10000
+NUMBER_OF_TEST = 500
 
 test5:
 	./push_swap $$(shuf -i 1-2147483647 -n 5) | wc -l
@@ -148,8 +148,8 @@ test_avg5:
 	    fi; \
 	done; \
 	avg=$$((total / $(NUMBER_OF_TEST))); \
-	echo "Moyenne sur $(NUMBER_OF_TEST) échantillons: $(GREEN)$$avg$(END)"; \
-	echo "Plus grand nombre de coups jamais eu: $(RED)$$max_result$(END)"
+	echo "Average over $(NUMBER_OF_TEST) samples: $(GREEN)$$avg$(END)"; \
+	echo "Largest number of moves: $(RED)$$max_result$(END)"
 
 test_avg100:
 	@max_result=0; \
@@ -162,9 +162,8 @@ test_avg100:
 	    fi; \
 	done; \
 	avg=$$((total / $(NUMBER_OF_TEST))); \
-	echo "Moyenne sur $(NUMBER_OF_TEST) échantillons: $(GREEN)$$avg$(END)"; \
-	echo "Plus grand nombre de coups jamais eu: $(RED)$$max_result$(END)"
-
+	echo "Average over $(NUMBER_OF_TEST) samples: $(GREEN)$$avg$(END)"; \
+	echo "Largest number of moves: $(RED)$$max_result$(END)"
 test_avg500:
 	@max_result=0; \
 	total=0; \

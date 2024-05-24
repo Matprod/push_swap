@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_correct_check.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Matprod <matprod42@gmail.com>              +#+  +:+       +#+        */
+/*   By: mvoisin <mvoisin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 14:17:30 by phunguye          #+#    #+#             */
-/*   Updated: 2024/03/10 19:54:37 by Matprod          ###   ########.fr       */
+/*   Updated: 2024/05/24 10:42:38 by mvoisin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,6 @@ unsigned int	check_error(int argc, char **argv, t_stack *stack)
 	else if (is_sorted(stack))
 		str = "Error\n";
 	if (str)
-		return (write(STDERR_FILENO, str, ft_strlen(str)));
+		return (write(1, str, ft_strlen(str)));
 	return (0);
 }

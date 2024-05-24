@@ -75,6 +75,6 @@ int	do_move_bonus(t_stack **stack_a, t_stack **stack_b, char *move)
 	else if (!ft_strcmp(move, "pa\n") || !ft_strcmp(move, "pb\n"))
 		do_push(stack_a, stack_b, move);
 	else
-		return (write(2, "Error : Wrong operation\n", 24));
+		return (-1);
 	return (0);
 }

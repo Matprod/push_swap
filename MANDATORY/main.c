@@ -6,7 +6,7 @@
 /*   By: mvoisin <mvoisin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 14:11:15 by phunguye          #+#    #+#             */
-/*   Updated: 2024/05/21 18:58:58 by mvoisin          ###   ########.fr       */
+/*   Updated: 2024/05/24 11:53:28 by mvoisin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,9 @@ int	main(int ac, char **av)
 
 	stack_a = NULL;
 	if (ac == 1)
-		return (EXIT_FAILURE);
+		return (write(1, "Error\n", ft_strlen("Error\n")));
 	if (check_between_arg(ac, av) == 0)
-		return (write(STDERR_FILENO, "Error\n", ft_strlen("Error\n")));
+		return (write(1, "Error\n", ft_strlen("Error\n")));
 	else
 		stack_a = stack_init(ac, av, stack_a);
 	if (check_error(ac, av, stack_a))
